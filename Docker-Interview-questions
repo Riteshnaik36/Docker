@@ -1,0 +1,93 @@
+-------------------------------------------------
+Beginner Level Docker Interview Questions
+-------------------------------------------------
+1.	What is Docker?
+2.	What is the difference between a Docker image and a Docker container?
+3.	What is a Dockerfile, and why is it important?
+4.	How do you build a Docker image from a Dockerfile?
+5.	How do you run a Docker container from an image?
+6.	What is the purpose of the docker “ps” command?
+7.	What is a Docker registry?
+8.	How can you stop and start a Docker container?
+
+
+
+-------------------------------------------------
+Intermediate-Level Docker Interview Questions
+-------------------------------------------------
+1.	Explain the process of container orchestration. How does Docker Swarm differ from Kubernetes?
+2.	What is the difference between the COPY and ADD commands in a Dockerfile?
+3.	How do you expose a port in a Docker container?
+4.	How do you share data between Docker containers?
+5.	What is the purpose of Docker Compose?
+6.	What is the difference between a volume and a bind mount in Docker?
+7.	How do you scale services in Docker Swarm?
+8.	What is the purpose of the docker logs command?
+9.	How can you network multiple Docker containers together?
+10.	How would you optimize Docker images for smaller size?
+
+
+
+Expert Level Docker Interview Questions
+-------------------------------------------------
+1.	Explain the Docker security best practices for production environments.
+2.	What is the role of Docker in a CI/CD pipeline?
+3.	Explain how Docker images are layered and how caching works during the build process.
+4.	How can you troubleshoot a Docker container that’s not starting properly?
+5.	What is the role of the Docker daemon and how does it communicate with the Docker CLI?
+6.	How can you implement logging and monitoring for Docker containers in production?
+7.	What is the purpose of Docker Content Trust (DCT) and how is it enabled?
+8.	How would you deploy a multi-container application using Docker Swarm or Kubernetes?
+9.	How do you manage the lifecycle of a Docker container in a production environment (e.g., rolling updates, health checks)?
+10.	Can you explain the concept of Docker “health checks” and how they work?
+________________________________________
+
+
+Optimizing Docker images for size and performance is essential for your applications to run and scale efficiently. There are several techniques you can use to optimize Docker images.
+•	Use multi-stage builds: You can use one Docker image to build your application and a different, lighter image to run it. The final image doesn’t carry the baggage of the build tools and intermediate artifacts, reducing its size.
+•	Minimize layers: Each RUN, COPY, or ADD command creates a new layer in your image. Combine these commands where possible to reduce the number of layers, using chaining commands (&&) in a single RUN instruction.
+•	Use a dockerignore file: This file lets you specify files or directories that should be ignored when building an image, preventing unnecessary or sensitive data from being included.
+•	Clean up in the same layer: Remove unnecessary files created by package managers within the same Dockerfile command. 
+•	Use a smaller base image: Instead of using a full-fledged OS as your base image, consider using smaller, more focused base images to reduce your image size significantly.
+
+
+
+Explain the concept of Docker networking and discuss the various network drivers available in Docker.
+Answer:
+Docker networking allows containers to communicate with each other and with other systems. 
+•	Bridge: This is the default network driver for a container. If you don’t specify a driver, Docker creates a bridge network for the container by default. This provides a private internal network on the host where containers are attached, which can facilitate communication between them.
+•	Host: The container’s network stack isn’t isolated from the Docker host if you use the host network driver. The container directly uses the networking of the Docker host. It’s faster than the bridge driver, but the container exposes its ports directly to the outside world.
+•	Overlay: This driver is used in Docker Swarm to enable swarm services to communicate with each other. It’s ideal for distributed networks across multiple hosts.
+•	MacVLAN: This driver assigns a MAC address to containers to make them appear as physical devices on the network. The Docker daemon routes traffic between containers and external networks.
+•	None: This driver disables all networking for the container. 
+
+
+
+What are Docker volumes, and how do they enable data persistence across containers?
+Answer:
+Docker volumes are the preferred mechanism for persisting data generated and used by Docker containers. 
+By default, Docker containers are stateless. When a container is deleted, all the changes made to its file system are lost. Docker volumes solve the problem of persisting data in Docker containers. 
+With Docker volumes, the data lives outside the containers and is stored on the host system. This makes the data persistent and independent of the life cycle of containers. The data in Docker volumes can be safely shared among multiple containers. Even if a container is deleted, the volume and its data will still exist.
+
+
+
+What is Docker Compose, and how does it simplify multi-container application deployments?
+Answer:
+Docker Compose is a tool that simplifies managing and deploying multi-container Docker applications. 
+With Compose, you can define your multi-container application using a YAML file where you specify services, networks, and volumes. Each service corresponds to a container. You can specify the Docker image, environment variables, network, and volume it should use.
+The power of Docker Compose comes when deploying a multi-container application. Instead of running each container separately and manually connecting them, you just need to type docker-compose up. 
+This command will create the networks, volumes, and services as defined in your Compose file, dramatically simplifying the process and reducing the potential for human error.
+
+
+
+Explain the differences between a Docker registry and a Docker repository.
+Answer:
+A Docker registry is a storage and distribution system for named Docker images. The Docker Hub and Google Container Registry are examples of public registries, but you can also have private ones.
+A Docker repository is a collection of different Docker images with the same name, distinguished by different tags. For example, in a repository called “debian”, you might have the tags 10, 11, and 12, each corresponding to a different image of the Debian operating system.
+
+
+
+
+
+
+
