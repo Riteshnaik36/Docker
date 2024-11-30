@@ -1,0 +1,32 @@
+Guru Mantra --- Yaad karlo:
+----------------------------
+In English 
+From a Docker FILE --> A docker IMAGE is created --> From docker image a CONTAINER is created
+
+In Hinglish
+Docker FILE se ek Docker IMAGE banti hai, aur us Docker IMAGE se ek CONTAINER create hota hai 
+--------------------------------------------------------------------------------------------------------------------------------------
+In English:
+A Docker file is a text document that contains all the instructions to build a Docker image. It defines the environment, dependencies, and setup required for an application to run inside a container. The Docker file is used by the Docker engine to automate the process of building an image, which can then be used to create containers.
+
+In Hinglish:
+Docker file ek text document hota hai, jisme sabhi instructions hoti hain jo ek Docker image banane ke liye chahiye. Yeh file environment, dependencies, aur application ko container ke andar chalane ke liye required setup define karti hai. Docker engine iss file ko use karke image banata hai, jo phir containers create karne ke liye use hoti hai.
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Docker File -------       docker build -t <app_name> .     ------- Docker image 
+                   \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _/
+
+
+Key Points to Remember:
+---------------------------
+1. The docker build command creates a Docker image from a Dockerfile.
+2. The -t option allows you to tag the image with a name (and optionally a version).
+3. The (.) dot represents the current directory as the context, where Docker looks for the Dockerfile and other files to include in the image.
+
+
+
+Key Points to Remember in Hinglish:
+docker build command se Docker image banayi jaati hai, jo ki Dockerfile se banti hai.
+-t option se aap image ko ek naam (aur optionally version) de sakte ho.
+. current directory ko represent karta hai jo build context hai, jahan Docker Dockerfile aur doosre files ko dekh kar image banata hai.
+Iska matlab hai, jab aap docker build -t <app_name> . chalate ho, to Docker current directory ko use karta hai image banane ke liye aur aapko image ko ek naam bhi de sakte ho.
